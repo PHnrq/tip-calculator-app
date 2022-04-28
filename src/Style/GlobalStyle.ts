@@ -38,6 +38,7 @@ export const GlobalStyle = createGlobalStyle`
     h1 {
         font-size: 2.8rem;
         color: var(--dark-grayish-cyan);
-        margin: 0 auto;
+        margin: 2.4rem auto;
+        text-transform: uppercase;
     }
 `
