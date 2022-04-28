@@ -20,4 +20,11 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Space Mono', monospace;
         font-size: 62.5%;
     }
+
+    body {
+        background: var(--strong-cyan);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 `
