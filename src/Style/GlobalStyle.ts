@@ -22,9 +22,22 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background: var(--strong-cyan);
+        background: var(--light-grayish-cyan);
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    .App {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: 2.8rem;
+        color: var(--dark-grayish-cyan);
+        margin: 0 auto;
     }
 `
