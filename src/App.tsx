@@ -4,12 +4,12 @@ import { GlobalStyle } from "./style/GlobalStyle";
 export function App() {
   return (
     <div className="App">
-      <GlobalStyle />
-      <h1>
+     <h1>
         Spli
         <br />
         tter
       </h1>
+      <GlobalStyle />
       <Main />
     </div>
   );
