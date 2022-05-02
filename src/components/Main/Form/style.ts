@@ -3,7 +3,7 @@ import dolarImg from "../../../assets/icon-dollar.svg";
 import personImg from "../../../assets/icon-person.svg";
 
 export const Container = styled.form`
-    
+    width: 85vw;
     font-size: 2.8rem;
     border-radius: 2.4rem;
     display: flex;
@@ -49,6 +49,14 @@ export const Container = styled.form`
        
     }
 
+    #tip-custom{
+        float:left;
+        border-radius:4px;
+        margin-block-end: 0.8rem;
+        font-size: 1.6rem;
+        width: 100%;
+    }
+
     fieldset label span {
         text-align:center;
         font-size: 2.4rem;
@@ -56,7 +64,7 @@ export const Container = styled.form`
         display:block;
     }
 
-    fieldset label input {
+    fieldset label input:not(#tip-custom) {
         position:absolute;
         top:-20px;
     }

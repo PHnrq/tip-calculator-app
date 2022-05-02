@@ -36,10 +36,12 @@ export function Form() {
                     <span>50%</span>
                 </label>
 
-                <label htmlFor="tip-custom">
+                <input type='number' name='tip' id='tip-custom' placeholder='Custom'/>
+
+                {/* <label htmlFor="tip-custom">
                     <input type="radio" name="tip" id="tip-custom"/>
                     <span>Custom</span>
-                </label>
+                </label> */}
             </fieldset>
 
             <label htmlFor="numOfPeople">Number of People</label>
