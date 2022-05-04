@@ -1,6 +1,10 @@
 import { Container } from "./style";
 
-export function Results() {
+interface ResultsProps{
+  totalPerPerson: string | number | undefined;
+}
+
+export function Results({totalPerPerson}: ResultsProps) {
   return (
     <Container>
 
@@ -22,7 +26,7 @@ export function Results() {
           <span>/ person</span>
         </p>
         <p>
-          $32.00
+          ${totalPerPerson? totalPerPerson : 0.00}
         </p>
       </div>
 
