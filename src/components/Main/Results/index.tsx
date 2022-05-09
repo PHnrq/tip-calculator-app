@@ -2,9 +2,11 @@ import { Container } from "./style";
 
 interface ResultsProps{
   totalPerPerson: string | number | undefined;
+  tipAmountPerPerson: string | number;
 }
 
-export function Results({totalPerPerson}: ResultsProps) {
+export function Results({totalPerPerson, tipAmountPerPerson}: ResultsProps) {
+
   return (
     <Container>
 
@@ -15,7 +17,7 @@ export function Results({totalPerPerson}: ResultsProps) {
           <span>/ person</span>
         </p>
         <p>
-          $4.00
+          ${tipAmountPerPerson}
         </p>
       </div>
 
@@ -26,7 +28,7 @@ export function Results({totalPerPerson}: ResultsProps) {
           <span>/ person</span>
         </p>
         <p>
-          ${totalPerPerson? totalPerPerson : 0.00}
+          ${totalPerPerson}
         </p>
       </div>
 
