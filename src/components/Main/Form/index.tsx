@@ -2,41 +2,24 @@ import { useEffect, useState } from "react";
 import { Container } from "./style";
 
 interface FormProps{
-    handleTotalPerPerson: (arg0: number) => void;
-    handleTipAmountPerPerson: (arg0: number|string, arg1: number | string, arg2: number | string) => void;
+    handleTotalPerPerson: (arg0: number, arg1: number, arg2: number) => void;
 }
 
-export function Form({handleTotalPerPerson, handleTipAmountPerPerson}: FormProps) {
+export function Form({handleTotalPerPerson}: FormProps) {
 
-    const [bill, setBill] = useState<string >('')
-
-    const [numOfPeople, setNumOfPeople] = useState<string>('')
-
-    const [tipValue, setTipValue] = useState<string>('') //Variavel responsavel por armazenar o valor da gorjeta do serviço.
+    const [bill, setBill] = useState<number>(0)
+    const [numOfPeople, setNumOfPeople] = useState<number>(0)
+    const [tipValue, setTipValue] = useState<number>(0) //Variavel responsavel por armazenar o valor da gorjeta do serviço.
 
     function handletip(e: React.ChangeEvent<HTMLInputElement>) { //Função responsavel por alterar o valor da gorjeta do serviço.
-        setTipValue(e.target.value)
+        setTipValue(Number(e.target.value))
     }
 
-
     useEffect(() => {
-        if(numOfPeople.length > 0 && bill.length > 0){
-            const totalPerPerson =  Number(bill) / Number(numOfPeople)
-            handleTotalPerPerson(totalPerPerson)
-        }else{
-            handleTotalPerPerson(0)
+        if(numOfPeople > 0 && bill > 0 && tipValue > 0){
+            handleTotalPerPerson(bill, numOfPeople, tipValue)
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [bill, numOfPeople])
-
-    useEffect(() => {
-        
-        if(numOfPeople.length > 0 && bill.length > 0 && tipValue.length > 0){
-        handleTipAmountPerPerson(bill, numOfPeople, tipValue)
-        }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [tipValue, numOfPeople, bill])
-
+    }, [bill, numOfPeople, tipValue])
 
 
 
@@ -49,7 +32,7 @@ export function Form({handleTotalPerPerson, handleTipAmountPerPerson}: FormProps
                 name="bill" 
                 className="bill" 
                 placeholder='10.00'
-                onChange={event => setBill(event.target.value)}
+                onChange={event => setBill(Number(event.target.value))}
             />
 
             <fieldset>
@@ -123,7 +106,7 @@ export function Form({handleTotalPerPerson, handleTipAmountPerPerson}: FormProps
                 id="numOfPeople" 
                 className="numOfPeople" 
                 placeholder="1"
-                onChange={event => setNumOfPeople(event.target.value)}/>
+                onChange={event => setNumOfPeople(Number(event.target.value))}/>
         </Container>
     );
 }

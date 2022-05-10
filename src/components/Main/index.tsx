@@ -6,25 +6,20 @@ import { Container } from "./style";
 
 export function Main() {
 
-  const [totalPerPerson, setTotalPerPerson] = useState<number | string>()
-  const [tipAmountPerPerson, setTipAmountPerPerson] = useState<number | string>('0.00')
+  const [totalPerPerson, setTotalPerPerson] = useState<number>(0)
+  const [tipAmountPerPerson, setTipAmountPerPerson] = useState<number>(0)
 
-  function handleTotalPerPerson(result: number){
-    const resultFormat = result.toFixed(2)
-    setTotalPerPerson(resultFormat)
-  }
-
-  function handleTipAmountPerPerson(bill: number | string, numOfPeople: number | string, tipValue: number | string){
-    
-    const tipAmount = Number(bill) * (Number(tipValue) / 100);
-    setTipAmountPerPerson((tipAmount / Number(numOfPeople)).toFixed(2))
+  function handleTotalPerPerson(bill: number, numOfPeople: number, tipValue: number){
+    const tipAmount = (bill * (tipValue / 100)) / numOfPeople
+    const totalAmount = (bill / numOfPeople) + tipAmount
+    setTotalPerPerson(totalAmount)
+    setTipAmountPerPerson(tipAmount)
   }
 
   return (
     <Container>
         <Form 
           handleTotalPerPerson={handleTotalPerPerson}
-          handleTipAmountPerPerson={handleTipAmountPerPerson}
         />
         <Results 
           totalPerPerson={totalPerPerson}

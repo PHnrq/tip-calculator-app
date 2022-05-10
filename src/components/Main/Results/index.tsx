@@ -1,8 +1,8 @@
 import { Container } from "./style";
 
 interface ResultsProps{
-  totalPerPerson: string | number | undefined;
-  tipAmountPerPerson: string | number;
+  totalPerPerson: number;
+  tipAmountPerPerson: number;
 }
 
 export function Results({totalPerPerson, tipAmountPerPerson}: ResultsProps) {
@@ -17,7 +17,7 @@ export function Results({totalPerPerson, tipAmountPerPerson}: ResultsProps) {
             <span>/ person</span>
           </p>
           <p>
-            ${tipAmountPerPerson}
+            ${tipAmountPerPerson.toFixed(2)}
           </p>
         </div>
 
@@ -28,7 +28,7 @@ export function Results({totalPerPerson, tipAmountPerPerson}: ResultsProps) {
             <span>/ person</span>
           </p>
           <p>
-            ${totalPerPerson}
+            ${totalPerPerson.toFixed(2)}
           </p>
         </div>
       </section>
