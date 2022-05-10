@@ -9,29 +9,30 @@ export function Results({totalPerPerson, tipAmountPerPerson}: ResultsProps) {
 
   return (
     <Container>
+      <section>
+        <div>
+          <p>
+            Tip Amount
+            <br />
+            <span>/ person</span>
+          </p>
+          <p>
+            ${tipAmountPerPerson}
+          </p>
+        </div>
 
-      <div>
-        <p>
-          Tip Amount
-          <br />
-          <span>/ person</span>
-        </p>
-        <p>
-          ${tipAmountPerPerson}
-        </p>
-      </div>
-
-      <div>
-        <p>
-          Total
-          <br />
-          <span>/ person</span>
-        </p>
-        <p>
-          ${totalPerPerson}
-        </p>
-      </div>
-
+        <div>
+          <p>
+            Total
+            <br />
+            <span>/ person</span>
+          </p>
+          <p>
+            ${totalPerPerson}
+          </p>
+        </div>
+      </section>
+      
       <button>
         Reset
       </button>

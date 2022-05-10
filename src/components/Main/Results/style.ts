@@ -35,4 +35,20 @@ export const Container = styled.div`
         text-transform: uppercase;
         border-radius: .5rem;
     }
+
+    @media (min-width: 768px) {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content:space-between;
+        padding: 4.2rem;
+        
+    }
+
+    @media (min-width: 1024px) {
+        div p:nth-child(2){
+        font-size: 3.6rem;
+    }
+
+    }
 `

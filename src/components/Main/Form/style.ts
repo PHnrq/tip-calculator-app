@@ -73,4 +73,13 @@ export const Container = styled.form`
         background-color:var(--strong-cyan);
         color: var(--very-dark-cyan);
     }
+
+    @media (min-width: 768px) {
+        flex: 1;
+        padding: 2.4rem;
+
+        fieldset{
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+    }
 `;

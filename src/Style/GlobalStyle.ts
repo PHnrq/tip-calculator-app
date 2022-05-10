@@ -33,6 +33,7 @@ export const GlobalStyle = createGlobalStyle`
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        margin: 5vh auto;
     }
 
     h1 {
@@ -40,5 +41,11 @@ export const GlobalStyle = createGlobalStyle`
         color: var(--dark-grayish-cyan);
         margin: 2.4rem auto;
         text-transform: uppercase;
+    }
+
+    @media (min-width: 1800px) {
+        *{
+            font-size: 100%;
+        }
     }
 `
