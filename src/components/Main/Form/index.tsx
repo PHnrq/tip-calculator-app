@@ -3,28 +3,21 @@ import { Container } from "./style";
 
 interface FormProps{
     handleTotalPerPerson: (arg0: number, arg1: number, arg2: number) => void;
+    handleSetBill: (bill: number) => void;
+    handlesetNumOfPeople: (numOfPeople: number) => void
+    handlesetTipValue: (tipValue: number) => void;
 }
 
-export function Form({handleTotalPerPerson}: FormProps) {
-
-    const [bill, setBill] = useState<number>(0)
-    const [numOfPeople, setNumOfPeople] = useState<number>(0)
-    const [tipValue, setTipValue] = useState<number>(0) //Variavel responsavel por armazenar o valor da gorjeta do serviço.
+export function Form({handleTotalPerPerson ,handleSetBill ,handlesetNumOfPeople , handlesetTipValue}: FormProps) {
 
     function handletip(e: React.ChangeEvent<HTMLInputElement>) { //Função responsavel por alterar o valor da gorjeta do serviço.
-        setTipValue(Number(e.target.value))
+        handlesetTipValue(Number(e.target.value))
     }
-
-    useEffect(() => {
-        if(numOfPeople > 0 && bill > 0 && tipValue > 0){
-            handleTotalPerPerson(bill, numOfPeople, tipValue)
-        }
-    }, [bill, numOfPeople, tipValue])
 
 
 
     return (
-        <Container>
+        <Container id="form">
             <label htmlFor="bill">Bill</label>
             <input 
                 type="number" 
@@ -32,7 +25,7 @@ export function Form({handleTotalPerPerson}: FormProps) {
                 name="bill" 
                 className="bill" 
                 placeholder='10.00'
-                onChange={event => setBill(Number(event.target.value))}
+                onChange={event => handleSetBill(Number(event.target.value))}
             />
 
             <fieldset>
@@ -106,7 +99,7 @@ export function Form({handleTotalPerPerson}: FormProps) {
                 id="numOfPeople" 
                 className="numOfPeople" 
                 placeholder="1"
-                onChange={event => setNumOfPeople(Number(event.target.value))}/>
+                onChange={event => handlesetNumOfPeople(Number(event.target.value))}/>
         </Container>
     );
 }
