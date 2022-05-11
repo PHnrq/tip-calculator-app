@@ -10,13 +10,17 @@ export const Container = styled.form`
     flex-direction: column;
 
     input[type="number"] {
-        padding: 0.8rem 1.6rem;
+        padding: 0.8rem 2.4rem;
         margin-block-end: 1.6rem;
         
         background-color: var(--very-light-grayish-cyan);
         background-position-x: 1.6rem;
         background-position-y: center;
         text-align: right;
+    }
+
+    input[type="number"]:focus {
+        outline-color: hsl(172, 67%, 45%);
     }
 
     label , legend{
@@ -47,6 +51,12 @@ export const Container = styled.form`
         border-radius:4px;
         overflow:auto;
        
+        transition: all 0.3s ease;
+    }
+
+    fieldset label:hover {
+        filter: brightness(1.3);
+        cursor: pointer;
     }
 
     #tip-custom{
@@ -72,6 +82,36 @@ export const Container = styled.form`
     fieldset input:checked + span {
         background-color:var(--strong-cyan);
         color: var(--very-dark-cyan);
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+
+    button:disabled {
+        background-color: black;
+    }
+
+    div{
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
+
+        span{
+            display: none;
+        }
+        
+        .invalid-value {
+            display: unset;
+            color: red;
+            font-size: 1.4rem;
+        }
     }
 
     @media (min-width: 768px) {

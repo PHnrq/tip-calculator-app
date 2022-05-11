@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Container } from "./style";
 
 interface ResultsProps{
@@ -11,11 +10,16 @@ interface ResultsProps{
 export function Results({totalPerPerson, tipAmountPerPerson, isFormReset, handleFormReset}: ResultsProps) {
   
   const defaultValue = 0.00
+  const form = document.getElementById("form") as HTMLFormElement;
 
   function resetForm (){ 
-    const form = document.getElementById("form") as HTMLFormElement;
+    console.log("clicked")
     form?.reset();
     handleFormReset();
+  }
+
+  function isButtonDisabled (){
+    return isFormReset;
   }
 
   return (
@@ -46,6 +50,7 @@ export function Results({totalPerPerson, tipAmountPerPerson, isFormReset, handle
       
       <button
         onClick={resetForm}
+        disabled={isButtonDisabled()}
       >
         Reset
       </button>

@@ -34,6 +34,18 @@ export const Container = styled.div`
         color: var(--very-dark-cyan);
         text-transform: uppercase;
         border-radius: .5rem;
+        cursor: pointer;
+
+        transition: all 0.3s ease;
+    }
+
+    button:hover{
+        filter: brightness(1.3);
+    }
+
+    button:disabled{
+        opacity: 0.2;
+        cursor: unset;
     }
 
     @media (min-width: 768px) {

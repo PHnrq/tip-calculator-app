@@ -12,7 +12,7 @@ export function Main() {
 
   const [totalPerPerson, setTotalPerPerson] = useState<number>(0)
   const [tipAmountPerPerson, setTipAmountPerPerson] = useState<number>(0)
-  const [isFormReset, setIsFormReset] = useState<boolean>(false)
+  const [isFormReset, setIsFormReset] = useState<boolean>(true)
   
     function handleSetBill(bill: number){
       setBill(bill)
@@ -55,7 +55,6 @@ export function Main() {
   return (
     <Container>
         <Form 
-          handleTotalPerPerson={handleTotalPerPerson}
           handleSetBill={handleSetBill}
           handlesetNumOfPeople={handlesetNumOfPeople}
           handlesetTipValue={handlesetTipValue}

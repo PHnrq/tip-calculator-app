@@ -1,20 +1,31 @@
-import { useEffect, useState } from "react";
 import { Container } from "./style";
 
 interface FormProps{
-    handleTotalPerPerson: (arg0: number, arg1: number, arg2: number) => void;
     handleSetBill: (bill: number) => void;
     handlesetNumOfPeople: (numOfPeople: number) => void
     handlesetTipValue: (tipValue: number) => void;
 }
 
-export function Form({handleTotalPerPerson ,handleSetBill ,handlesetNumOfPeople , handlesetTipValue}: FormProps) {
+export function Form({handleSetBill ,handlesetNumOfPeople , handlesetTipValue}: FormProps) {
+
+    function resetCustomTip(){
+        const inputTip = document.querySelector("#tip-custom") as HTMLInputElement;
+
+        inputTip.value = '';
+    }
 
     function handletip(e: React.ChangeEvent<HTMLInputElement>) { //Função responsavel por alterar o valor da gorjeta do serviço.
+
         handlesetTipValue(Number(e.target.value))
     }
 
-
+    function resetRadioTip(){
+        const checkedRadio = document.querySelector('input[name="tip"]:checked') as HTMLInputElement;
+        
+        if(checkedRadio){
+            checkedRadio.checked = false;
+        }
+    }
 
     return (
         <Container id="form">
@@ -24,14 +35,18 @@ export function Form({handleTotalPerPerson ,handleSetBill ,handlesetNumOfPeople 
                 id="bill" 
                 name="bill" 
                 className="bill" 
-                placeholder='10.00'
+                placeholder='0'
+                step={0.05}
                 onChange={event => handleSetBill(Number(event.target.value))}
             />
 
             <fieldset>
                 <legend>Select Tip %</legend>
 
-                <label htmlFor="tip-5" >
+                <label 
+                    htmlFor="tip-5" 
+                    onClick={resetCustomTip}
+                >
                     <input 
                         type="radio" 
                         name="tip" 
@@ -43,7 +58,10 @@ export function Form({handleTotalPerPerson ,handleSetBill ,handlesetNumOfPeople 
                 </label>
                 
 
-                <label htmlFor="tip-10" >
+                <label 
+                    htmlFor="tip-10" 
+                    onClick={resetCustomTip}
+                >
                     <input 
                         type="radio" 
                         name="tip" 
@@ -53,7 +71,10 @@ export function Form({handleTotalPerPerson ,handleSetBill ,handlesetNumOfPeople 
                     <span>10%</span>
                 </label>
 
-                <label htmlFor="tip-15" >
+                <label 
+                    htmlFor="tip-15" 
+                    onClick={resetCustomTip}
+                >
                     <input 
                         type="radio" 
                         name="tip" 
@@ -63,7 +84,10 @@ export function Form({handleTotalPerPerson ,handleSetBill ,handlesetNumOfPeople 
                     <span>15%</span>
                 </label>
 
-                <label htmlFor="tip-25" >
+                <label 
+                    htmlFor="tip-25" 
+                    onClick={resetCustomTip}
+                >
                     <input 
                         type="radio" 
                         name="tip" 
@@ -73,7 +97,10 @@ export function Form({handleTotalPerPerson ,handleSetBill ,handlesetNumOfPeople 
                     <span>25%</span>
                 </label>
 
-                <label htmlFor="tip-50" >
+                <label 
+                    htmlFor="tip-50" 
+                    onClick={resetCustomTip}
+                >
                     <input 
                         type="radio" 
                         name="tip" 
@@ -88,18 +115,33 @@ export function Form({handleTotalPerPerson ,handleSetBill ,handlesetNumOfPeople 
                     name='tip' 
                     id='tip-custom' 
                     placeholder='Custom'
+                    onFocus={resetRadioTip}
                     onChange={handletip}/>
 
             </fieldset>
 
-            <label htmlFor="numOfPeople">Number of People</label>
+            <div>
+               <label htmlFor="numOfPeople">Number of People</label>
+                <span id="validatedValue">Can't be zero</span>
+            </div>
             <input 
                 type="number" 
                 name="numOfPeople" 
                 id="numOfPeople" 
                 className="numOfPeople" 
-                placeholder="1"
-                onChange={event => handlesetNumOfPeople(Number(event.target.value))}/>
+                placeholder="0"
+                onChange={event => {
+                            handlesetNumOfPeople(Number(event.target.value)) 
+                            
+                            const validatedValue = document.querySelector('#validatedValue') as HTMLSpanElement;
+
+                            if(event.target.value === '0'){
+                                validatedValue.classList.add('invalid-value');
+                            }else{
+                                validatedValue.classList.remove('invalid-value');
+                            }
+                        }}
+                />
         </Container>
     );
 }
