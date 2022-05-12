@@ -1,6 +1,6 @@
-import {createGlobalStyle} from 'styled-components';
+import { createGlobalStyle } from 'styled-components'
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
     * {
         //Reset
         margin: 0;
@@ -49,4 +49,3 @@ const GlobalStyle = createGlobalStyle`
         }
     }
 `
-export default GlobalStyle;

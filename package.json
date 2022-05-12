@@ -30,6 +30,9 @@
       "react-app/jest"
     ]
   },
+  "resolutions": {
+    "styled-components": "^5"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
