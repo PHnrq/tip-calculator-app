@@ -1,5 +1,5 @@
 import { Main } from "./components/Main";
-import { GlobalStyle } from "./style/GlobalStyle";
+import  GlobalStyle  from "./style/GlobalStyle";
 
 export function App() {
   return (
