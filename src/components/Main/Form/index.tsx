@@ -10,12 +10,10 @@ export function Form({handleSetBill ,handlesetNumOfPeople , handlesetTipValue}: 
 
     function resetCustomTip(){
         const inputTip = document.querySelector("#tip-custom") as HTMLInputElement;
-
         inputTip.value = '';
     }
 
     function handletip(e: React.ChangeEvent<HTMLInputElement>) { //Função responsavel por alterar o valor da gorjeta do serviço.
-
         handlesetTipValue(Number(e.target.value))
     }
 
