@@ -20,7 +20,7 @@ Os usuários devem ser capazes de:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./src/assets/screeshot.png)
 
 ### Links
 
