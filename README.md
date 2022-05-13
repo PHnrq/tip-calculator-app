@@ -4,10 +4,10 @@ Esta é uma solução para o [desafio Tip calculator app do Frontend Mentor](htt
 
 ## Conteúdos
 
-- [Desafio](#Desafio)
+- [Desafio](#desafio)
 - [Screenshot](#screenshot)
 - [Links](#links)
-- [Desenvolvido com:](#Desenvolvido com:)
+- [Tecnologias](#tecnologias)
 - [Autor](#autor)
 
 ### Desafio
@@ -27,7 +27,7 @@ Os usuários devem ser capazes de:
 - Repositório: [Github](https://github.com/PHnrq/tip-calculator-app)
 - Live Site: [Tip Calculator](https://tip-calculator-app-beige-delta.vercel.app/)
 
-### Desenvolvido com:
+### Tecnologias
 
 - HTML5
 - CSS3
