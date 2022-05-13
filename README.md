@@ -24,8 +24,8 @@ Os usuários devem ser capazes de:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://github.com/PHnrq/tip-calculator-app)
-- Live Site URL: [Add live site URL here](https://tip-calculator-app-beige-delta.vercel.app/)
+- Repositório: [Github](https://github.com/PHnrq/tip-calculator-app)
+- Live Site: [Tip Calculator](https://tip-calculator-app-beige-delta.vercel.app/)
 
 ### Desenvolvido com:
 
